@@ -5,7 +5,7 @@ export default class Page extends React.Component {
         const {children} = this.props;
 
         return (
-            <div>
+            <div style={{display: 'flex', flex: '1', padding: '150px 0', justifyContent: 'center', alignItems: 'center'}}>
                 {children}
             </div>
         )

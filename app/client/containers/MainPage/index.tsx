@@ -3,12 +3,9 @@ import React from 'react';
 export default class MainPage extends React.Component {
     render() {
         return (
-            <table>
+            <table style={{backgroundColor: 'lightgray', width: '900px'}}>
                 <tr>
-                    <th>Name</th>
-                    <th>Username</th>
-                    <th>E-mail</th>
-                    <th>Website</th>
+                    {content.map((el) => <th>{el.title}</th>)}
                 </tr>
                 <tr>
                     <td>Qwer</td>
