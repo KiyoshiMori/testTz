@@ -2,7 +2,7 @@ import React from 'react';
 
 import {getUsers, getAlbums} from '../../../api/Api';
 
-export default class MainPage extends React.Component {
+export default class UserPage extends React.Component {
     state = {
         loading: true,
         user: null,

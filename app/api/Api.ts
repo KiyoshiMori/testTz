@@ -18,9 +18,9 @@ export function getUsers(userId:string = '') {
 export function getAlbums(userId: string) {
     const options = {
         method: 'GET',
-        uri: `${API_CORE}/albums`,
+        uri: `${API_CORE}/albums/?userId=${userId}`,
         json: 'true',
-        params: {userId} 
+        // params: {userId} 
     }
 
     try {
@@ -30,13 +30,14 @@ export function getAlbums(userId: string) {
     }
 }
 
-export function getAlbum(albumId: number) {
+export function getAlbum(albumId: string) {
     const options = {
         method: 'GET',
-        uri: `${API_CORE}/photos`,
+        uri: `${API_CORE}/photos/?albumId=${albumId}`,
         json: 'true',
-        params: {albumId} 
+        // params: {albumId} 
     }
+    console.log(options)
 
     try {
         return rp(options)
