@@ -6,13 +6,13 @@ export default class MainPage extends React.Component {
     state = {
         loading: true,
         users: null,
-        table: ['Name', 'Username', 'E-mail', 'Website']
+        tableKeys: ['Name', 'Username', 'E-mail', 'Website']
     }
 
     async componentDidMount() {
-        const res = await getUsers();
+        const users = await getUsers();
 
-        this.setState({loading: false, users: res});
+        this.setState({loading: false, users});
     }
 
     _toUser = (id) => {
@@ -22,14 +22,14 @@ export default class MainPage extends React.Component {
     }
 
     render() {
-        const {users, loading, table} = this.state;
+        const {users, loading, tableKeys} = this.state;
 
         if (loading) return <p>Loading...</p>
 
         return (
             <table style={{backgroundColor: 'lightgray', width: '900px'}}>
                 <tr>
-                    {table.map(el => <th>{el}</th>)}
+                    {tableKeys.map(el => <th>{el}</th>)}
                 </tr>
                 {users.map(el => (
                     <tr onClick={() => this._toUser(el.id)}>

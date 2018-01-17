@@ -6,7 +6,7 @@ import { BrowserRouter } from 'react-router-dom';
 import Root from './client/containers/Root';
 
 ReactDOM.render(
-    <BrowserRouter>
+    <BrowserRouter location={location}>
         <Root />
     </BrowserRouter>,
     document.getElementById('react-view')

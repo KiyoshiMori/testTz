@@ -1,10 +1,10 @@
 import rp from 'request-promise-native';
 import {API_CORE} from './env';
 
-export function getUsers() {
+export function getUsers(userId:string = '') {
     const options = {
         method: 'GET',
-        uri: `${API_CORE}/users`,
+        uri: `${API_CORE}/users/${userId}`,
         json: 'true' 
     }
 
@@ -15,7 +15,7 @@ export function getUsers() {
     }
 }
 
-export function getAlbums(userId: number) {
+export function getAlbums(userId: string) {
     const options = {
         method: 'GET',
         uri: `${API_CORE}/albums`,
