@@ -1,9 +1,13 @@
 import React from 'react';
 import ReactDOM from 'react-dom';
 
-import Root from './client/containers/Root/index.tsx';
+import { BrowserRouter } from 'react-router-dom';
+
+import Root from './client/containers/Root';
 
 ReactDOM.render(
-    <Root />,
+    <BrowserRouter>
+        <Root />
+    </BrowserRouter>,
     document.getElementById('react-view')
 );

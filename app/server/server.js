@@ -1,13 +1,19 @@
 import React from 'react';
 import express  from 'express';
 import ReactDOMServer from 'react-dom/server';
+import {StaticRouter} from 'react-router';
 
-import App from '../client/containers/Root/index.tsx';
+// import App from '../client/containers/Root';
 
 const app = express();
 
 app.use((req, res) => {
-    const componentHTML = ReactDOMServer.renderToString(<App />);
+    const context = {};
+    const componentHTML = ReactDOMServer.renderToString(
+        <StaticRouter location={req.url} context={context}>
+            <div id="react-view"></div>
+        </StaticRouter>
+    );
     res.end(renderHTML(componentHTML));
 });
 
@@ -22,8 +28,8 @@ function renderHTML(componentHTML) {
             <link rel="stylesheet" href="localhost:8081/public/assets/styles.css">
         </head>
         <body>
-          <div id="react-view">${componentHTML}</div>
-          <script type="application/javascript" src="localhost:8081/public/assets/bundle.js"></script>
+          ${componentHTML}
+          <script type="application/javascript" src="http://localhost:8081/public/assets/app.js"></script>
         </body>
       </html>
     `;

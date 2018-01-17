@@ -4,8 +4,8 @@
   "description": "''",
   "scripts": {
     "build": "set NODE_ENV='production' && webpack -p",
-    "local": "webpack-dev-server --debug --hot --devtool eval-source-map --output-pathinfo --watch --colors --inline --content-base public --port 8081 --host localhost --open",
-    "nodemon": "set NODE_PATH=./app/server/; nodemon server.js",
+    "local": "webpack-dev-server --debug --hot --devtool eval-source-map --output-pathinfo --watch --colors --inline --content-base public --port 8081 --host localhost",
+    "nodemon": "set NODE_PATH=./app; nodemon --watch containers -e js,jsx,ts,tsx server.js",
     "start": "run-p local nodemon"
   },
   "repository": {
@@ -24,13 +24,16 @@
     "bluebird": "^3.5.1",
     "express": "^4.16.2",
     "react": "^16.2.0",
-    "react-dom": "^16.2.0"
+    "react-dom": "^16.2.0",
+    "react-router": "^4.2.0",
+    "react-router-dom": "^4.2.2"
   },
   "devDependencies": {
     "babel-loader": "^7.1.2",
     "css-loader": "^0.28.9",
     "nodemon": "^1.14.11",
     "postcss-loader": "^2.0.10",
+    "request-promise-native": "^1.0.5",
     "sass": "^1.0.0-beta.4",
     "sass-loader": "^6.0.6",
     "ts-loader": "^3.2.0",
