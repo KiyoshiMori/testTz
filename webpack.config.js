@@ -8,13 +8,21 @@ var path       = require('path');
 var publicPath = 'http://localhost:8081/public/assets';
 var bundleName = 'app.js';
 
+var plugins = [
+	new webpack.DefinePlugin({
+		'process_env': {
+			BROWSER: JSON.stringify(true),
+			NODE_ENV: JSON.stringify(process.env.NODE_ENV)
+		}
+	})
+]
 module.exports = {
-	entry: ['babel-polyfill', './app/client.ts'],
+	entry: ['babel-polyfill', './app/App.js'],
 	resolve: {
-		// root:   path.join(__dirname, 'app'),
-		// modulesDirectories: ['node_modules'],
-		extensions: ['.js', '.ts']
+		modules:   [path.join(__dirname, 'app'), "node_modules"],
+		extensions: ['.js', '.jsx', '.ts', '.tsx']
 	},
+	plugins,
 	output: {
 		path: `${__dirname}/public/assets/`,
 		filename: bundleName,
@@ -30,7 +38,8 @@ module.exports = {
 				test: /\.sass$/,
 				loader: 'css-loader!postcss-loader!sass-loader'
 			},
-			{   test: /\.ts$/, loader: 'ts-loader', exclude: /node_modules/ },
+			{   test: /\.tsx?$/, loader: 'babel-loader!ts-loader', exclude: [/node_modules/, /public/] },
+			{   test: /\.jsx?$/, loader: 'babel-loader', exclude: [/node_modules/, /public/] },
 
 		]
 	}

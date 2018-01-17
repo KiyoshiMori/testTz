@@ -1,10 +1,11 @@
 {
     "compilerOptions": {
       "outDir": "./app/",
-      "noImplicitAny": true,
+      "noImplicitAny": false,
       "module": "es6",
       "target": "es5",
+      "allowJs": true,
       "jsx": "react",
-      "allowJs": true
+      "allowSyntheticDefaultImports": true,
     }
   }
