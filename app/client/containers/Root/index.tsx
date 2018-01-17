@@ -13,7 +13,7 @@ export default class Root extends React.Component {
 
         return (
             <Page>
-                <Route path={match.url} component={MainPage} />
+                <Route exact path={match.url} component={MainPage} />
             </Page>
         )
     }

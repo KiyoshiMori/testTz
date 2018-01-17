@@ -42,5 +42,6 @@ module.exports = {
 			{   test: /\.jsx?$/, loader: 'babel-loader', exclude: [/node_modules/, /public/] },
 
 		]
-	}
+	},
+	node: {console: true, fs: 'empty', net: 'empty', tls: 'empty'}
 }

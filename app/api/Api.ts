@@ -4,7 +4,7 @@ import {API_CORE} from './env';
 export function getUsers() {
     const options = {
         method: 'GET',
-        uri: `${API_CORE}/users/10`,
+        uri: `${API_CORE}/users`,
         json: 'true' 
     }
 
