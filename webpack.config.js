@@ -36,7 +36,7 @@ module.exports = {
 			},
 			{
 				test: /\.sass$/,
-				loader: 'style-loader!typings-for-css-modules-loader?modules&sass&localIdentName=[name]--[local]&sourceMap&namedExport!sass-loader'
+				loader: 'style-loader!typings-for-css-modules-loader?modules&sass&localIdentName=[local]-[hash]&sourceMap&namedExport!sass-loader'
 			},
 			{   test: /\.tsx?$/, loader: 'babel-loader!ts-loader', exclude: [/node_modules/, /public/] },
 			{   test: /\.jsx?$/, loader: 'babel-loader', exclude: [/node_modules/, /public/] },
