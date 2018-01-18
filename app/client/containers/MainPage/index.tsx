@@ -2,6 +2,8 @@ import React from 'react';
 
 import {getUsers} from '../../../api/Api';
 
+import styles from './styles.sass';
+
 export default class MainPage extends React.Component {
     state = {
         loading: true,
@@ -27,7 +29,7 @@ export default class MainPage extends React.Component {
         if (loading) return <p>Loading...</p>
 
         return (
-            <table style={{backgroundColor: 'lightgray', width: '900px'}}>
+            <table className={styles.Table}>
                 <tr>
                     {tableKeys.map(el => <th>{el}</th>)}
                 </tr>

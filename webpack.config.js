@@ -3,7 +3,7 @@ global.Promise    = require('bluebird');
 var webpack    = require('webpack');
 var path       = require('path');
 
-// var qwe        = qwe;
+var ExtractTextPlugin  = require('extract-text-webpack-plugin');
 
 var publicPath = 'http://localhost:8081/public/assets';
 var bundleName = 'app.js';
@@ -14,8 +14,10 @@ var plugins = [
 			BROWSER: JSON.stringify(true),
 			NODE_ENV: JSON.stringify(process.env.NODE_ENV)
 		}
-	})
+	}),
+	new ExtractTextPlugin('styles.css')
 ]
+
 module.exports = {
 	entry: ['babel-polyfill', './app/App.js'],
 	resolve: {
@@ -32,7 +34,7 @@ module.exports = {
 		loaders: [
 			{
 				test: /\.css$/,
-				loader: 'typings-for-css-modules-loader?modules&namedExport'
+				use: ExtractTextPlugin.extract({fallback: 'style-loader', use: 'typings-for-css-modules-loader?modules&namedExport'})
 			},
 			{
 				test: /\.sass$/,
