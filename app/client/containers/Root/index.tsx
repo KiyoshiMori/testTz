@@ -13,11 +13,10 @@ import AlbumPage from '../AlbumPage';
 @withRouter
 export default class Root extends React.Component {
     render() {
-        const {match} = this.props;
-        console.log(this.props);
+        const {match, history} = this.props;
 
         return [
-            <Page match={match}>
+            <Page match={match} history={history}>
                 <Route exact path={match.url} component={MainPage} />
                 <Route exact path={`/user/:id`} component={UserPage} />
                 <Route exact path={`/user/:id/album/:album_id`} component={AlbumPage} />

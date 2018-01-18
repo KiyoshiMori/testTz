@@ -5,8 +5,43 @@
     display: flex
     width: 40%
     flex-direction: column
-    padding-left: 40px
+    align-items: center
+    margin-left: 35px
+    padding: 10px 0
+    background: #f5f7fa
     > img
         max-width: 50%
+        border: 3px solid #5596e6
+    > p
+        align-self: flex-start
+        padding-left: 10px
+        font-weight: bold
+        color: #152934
 .rightSide
     width: 60%
+    margin-left: 5%
+    &Table
+        border-collapse: collapse
+        width: 100%
+        > tr
+            display: flex
+            width: 95%
+            text-align: center
+            border: solid 2px #3d70b2
+            box-sizing: border-box
+            padding: 8px
+            font-weight: bold
+            cursor: pointer
+            background: #f5f7fa
+            color: #152934
+            &:hover
+                background: #dfe3e6
+            > td
+                display: flex
+                width: 100%
+                align-items: center
+                justify-content: space-around
+                > p
+                    width: 80%
+                    overflow-wrap: break-word
+                    margin: 0

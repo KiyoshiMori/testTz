@@ -26,6 +26,8 @@ function renderHTML(componentHTML) {
             <meta name="viewport" content="width=device-width, initial-scale=1.0">
             <title>Test</title>
             <link rel="stylesheet" href="http://localhost:8081/assets/styles.css">
+            <link href="https://fonts.googleapis.com/icon?family=Material+Icons"
+            rel="stylesheet">
         </head>
         <body>
           ${componentHTML}
@@ -35,7 +37,7 @@ function renderHTML(componentHTML) {
     `;
 }
 
-const PORT = process.env.PORT || 3001;
+const PORT = process.env.PORT || 8080;
 
 app.listen(PORT, () => {
     console.log(`Server listening on: ${PORT}`);

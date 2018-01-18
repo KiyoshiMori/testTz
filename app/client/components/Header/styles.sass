@@ -8,16 +8,24 @@
     border-radius: 0 0 10px 10px
     &Button
         display: flex
-        margin: 0 2px 2px 2px
         padding: 20px
         align-items: center
         text-decoration: none
         background: #3d70b2
-        border: 2px solid #3d70b2
         border-top: 0px
-        border-radius: 0 0 0px 10px
-        &:visited
-            color: black
+        margin: 0 0 2px 0
+        color: #152934
+        font-weight: bold
+        &:hover
+            background: #152934
+            color: #e71d32
         &:active
             background: #152934
             color: #e71d32
+        &:visited:not(:hover)
+            color: #152934
+        &:first-child
+            border: 2px solid #3d70b2
+            border-radius: 0 0 0px 10px
+            margin: 0 0 2px 2px
+

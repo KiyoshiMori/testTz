@@ -37,20 +37,30 @@ export default class UserPage extends React.Component {
         if (loading) return <p>Loading...</p>
 
         const {city, street, suite, zipcode} = user.address;
-
+        const userAvatar = avatar.generate_avatar({"id": user.id, "gender": user.id % 2 == 0 ? "male" : "female"});
+        
         return (
             <div className={styles.Container}>
                 <div className={styles.leftSide}>
-                    <img src={avatar.generate_avatar({"id": user.id, "gender": user.id % 2 == 0 ? "male" : "female"})} />
-                    {user.username}
-                    {user.name}
-                    {user.email}
-                    {`${city} | ${street} | ${suite} | ${zipcode}`}
+                    <img src={userAvatar} />
+                    <p>{user.username}</p>
+                    <p>{user.name}</p>
+                    <p>{user.email}</p>
+                    <p>{`${city} | ${street} | ${suite} | ${zipcode}`}</p>
+                    <p>{user.phone}</p>
+                    <p>{user.website}</p>
+                    <p>{user.company.name}</p>
                 </div>
                 <div className={styles.rightSide}>
+                    <table className={styles.rightSideTable}>
                     {albums.map(el => {
-                        return <div onClick={() => this._toAlbum(el.id)}>{el.title}</div>
+                        return (
+                            <tr onClick={() => this._toAlbum(el.id)}>
+                                <td><i className='material-icons'>photo_album</i><p>{el.title}</p><i className='material-icons'>play_arrow</i></td>
+                            </tr>
+                        )
                     })}
+                    </table>
                 </div>
             </div>
         )

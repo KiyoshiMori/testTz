@@ -1,6 +1,10 @@
 import React from 'react';
 
+import Photo from './components/Photo';
+
 import {getAlbum} from '../../../api/Api';
+
+import styles from './styles.sass';
 
 export default class AlbumPage extends React.Component {
     state = {
@@ -18,12 +22,6 @@ export default class AlbumPage extends React.Component {
         this.setState({loading: false, album});
     }
 
-    _toAlbum = (id) => {
-        const {history, match} = this.props;
-
-        history.push(`${match.url}/album/${id}`)
-    }
-
     render() {
         const {album, loading} = this.state;
 
@@ -32,8 +30,8 @@ export default class AlbumPage extends React.Component {
         if (loading) return <p>Loading...</p>
 
         return (
-            <div>
-                {album.map( el => <img src={el.thumbnailUrl} />                    
+            <div className={styles.Album}>
+                {album.map( el => <Photo src={el.thumbnailUrl} title={el.title} />                 
                 )}
             </div>
         )
