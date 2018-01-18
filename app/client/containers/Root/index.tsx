@@ -17,7 +17,7 @@ export default class Root extends React.Component {
         console.log(this.props);
 
         return [
-            <Page>
+            <Page match={match}>
                 <Route exact path={match.url} component={MainPage} />
                 <Route exact path={`/user/:id`} component={UserPage} />
                 <Route exact path={`/user/:id/album/:album_id`} component={AlbumPage} />

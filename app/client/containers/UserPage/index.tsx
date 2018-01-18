@@ -1,6 +1,9 @@
 import React from 'react';
+import avatar from 'cartoon-avatar';
 
 import {getUsers, getAlbums} from '../../../api/Api';
+
+import styles from './styles.sass';
 
 export default class UserPage extends React.Component {
     state = {
@@ -29,16 +32,22 @@ export default class UserPage extends React.Component {
     render() {
         const {user, albums, loading} = this.state;
 
-        console.log(albums);
+        console.log(albums, user);
 
         if (loading) return <p>Loading...</p>
 
+        const {city, street, suite, zipcode} = user.address;
+
         return (
-            <div>
-                <div>
+            <div className={styles.Container}>
+                <div className={styles.leftSide}>
+                    <img src={avatar.generate_avatar({"id": user.id, "gender": user.id % 2 == 0 ? "male" : "female"})} />
+                    {user.username}
                     {user.name}
+                    {user.email}
+                    {`${city} | ${street} | ${suite} | ${zipcode}`}
                 </div>
-                <div>
+                <div className={styles.rightSide}>
                     {albums.map(el => {
                         return <div onClick={() => this._toAlbum(el.id)}>{el.title}</div>
                     })}
