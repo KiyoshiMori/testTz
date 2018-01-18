@@ -1,12 +1,16 @@
 import React from 'react';
 
+import styles from './styles.sass';
+
 export default class Page extends React.Component {
     render() {
         const {children} = this.props;
-
+        console.log(styles);
         return (
-            <div style={{display: 'flex', flex: '1', padding: '150px 0', justifyContent: 'center', alignItems: 'center'}}>
+            <div className={styles.Page}>
+                <div className={styles.PageContent}>
                 {children}
+                </div>
             </div>
         )
     }

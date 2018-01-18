@@ -32,11 +32,11 @@ module.exports = {
 		loaders: [
 			{
 				test: /\.css$/,
-				loader: 'css-loader!postcss-loader'
+				loader: 'typings-for-css-modules-loader?modules&namedExport'
 			},
 			{
 				test: /\.sass$/,
-				loader: 'css-loader!postcss-loader!sass-loader'
+				loader: 'style-loader!typings-for-css-modules-loader?modules&sass&localIdentName=[name]--[local]&sourceMap&namedExport!sass-loader'
 			},
 			{   test: /\.tsx?$/, loader: 'babel-loader!ts-loader', exclude: [/node_modules/, /public/] },
 			{   test: /\.jsx?$/, loader: 'babel-loader', exclude: [/node_modules/, /public/] },
