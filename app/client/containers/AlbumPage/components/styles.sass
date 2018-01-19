@@ -1,3 +1,5 @@
+@import '../../../styles/_variables.sass'
+
 .Photo 
     display: flex
     flex-direction: column
@@ -12,4 +14,12 @@
     &:nth-child(3n) ~,
     &:first-child
         margin-left: 0
-
+    @media #{$mobile}
+        display: block
+        width: 115px
+        height: 100px
+        overflow: hidden
+        margin: 0
+        border: #5596e6 1px solid
+        > img
+            width: 50%
