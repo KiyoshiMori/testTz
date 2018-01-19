@@ -1,3 +1,5 @@
+@import '../../styles/_variables.sass'
+
 .Table
     border-collapse: collapse
     background-color: lightgray
@@ -14,3 +16,33 @@
             background: #5596e6
         > td
             background: #f5f7fa
+    @media #{$mobile}
+        display: flex
+        flex-wrap: wrap
+        flex-direction: column
+        > tr
+            display: flex
+            width: 100%
+            justify-content: center
+            > th
+                word-wrap: normal!important
+                min-height: 0px!important
+            > td,
+            > th
+                justify-content: center
+                align-items: center
+                text-align: center
+                min-height: 60px
+                word-wrap: break-word
+                > p
+                    margin: 0
+                    padding: 3px
+            > th:not(:nth-child(3)),
+            > td:not(:nth-child(3))
+                width: 25%
+            > th:nth-child(3),
+            > td:nth-child(3)
+                width: 50%
+            > th:nth-child(4),
+            > td:nth-child(4)
+                display: none

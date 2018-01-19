@@ -10,11 +10,13 @@ export default class Page extends React.Component {
         return (
             <div className={styles.Header}>
                 <NavLink to={`${match.url}`} className={styles.HeaderButton}>
-                    Главная
+                    <p>Главная</p>
+                    <i className="material-icons">home</i>
                 </NavLink>
                 {back 
                 &&  <NavLink to={back} className={styles.HeaderButton}>
-                        Назад
+                        <p>Назад</p>
+                        <i className="material-icons">keyboard_arrow_left</i>
                     </NavLink>
                 }
                 {children}

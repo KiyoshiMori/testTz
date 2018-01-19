@@ -31,14 +31,14 @@ export default class MainPage extends React.Component {
         return (
             <table className={styles.Table}>
                 <tr>
-                    {tableKeys.map(el => <th>{el}</th>)}
+                    {tableKeys.map(el => <th><p>{el}</p></th>)}
                 </tr>
                 {users.map(el => (
                     <tr onClick={() => this._toUser(el.id)}>
-                        <td>{el.name}</td>
-                        <td>{el.username}</td>
-                        <td>{el.email}</td>
-                        <td>{el.website}</td>
+                        <td><p>{el.name}</p></td>
+                        <td><p>{el.username}</p></td>
+                        <td><p>{el.email}</p></td>
+                        <td><p>{el.website}</p></td>
                     </tr>
                 ))}
             </table>
