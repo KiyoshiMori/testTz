@@ -1,6 +1,10 @@
+@import '../../styles/_variables.sass'
+
 .Container
     display: flex
     flex: 1
+    @media #{$mobile}
+        flex-wrap: wrap
 .leftSide
     display: flex
     width: 40%
@@ -17,6 +21,9 @@
         padding-left: 10px
         font-weight: bold
         color: #152934
+    @media #{$mobile}
+        width: 100%
+        margin: 0 10px
 .rightSide
     width: 60%
     margin-left: 5%
@@ -45,3 +52,8 @@
                     width: 80%
                     overflow-wrap: break-word
                     margin: 0
+    @media #{$mobile}
+        width: 100%
+        margin: 20px 10px
+        &Table > tr
+            width: 100%
