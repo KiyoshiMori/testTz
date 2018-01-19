@@ -31,7 +31,7 @@ export default class AlbumPage extends React.Component {
 
         return (
             <div className={styles.Album}>
-                {album.map( el => <Photo src={el.thumbnailUrl} title={el.title} />                 
+                {album.map( el => <Photo key={el.id} src={el.thumbnailUrl} title={el.title} />                 
                 )}
             </div>
         )

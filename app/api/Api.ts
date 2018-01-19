@@ -1,7 +1,9 @@
 import rp from 'request-promise-native';
 import {API_CORE} from './env';
 
-export function getUsers(userId:string = '') {
+import {albumResult, albumsResult, userResult} from './ApiScheme';
+
+export function getUsers(userId: string = ''): userResult {
     const options = {
         method: 'GET',
         uri: `${API_CORE}/users/${userId}`,
@@ -15,7 +17,7 @@ export function getUsers(userId:string = '') {
     }
 }
 
-export function getAlbums(userId: string) {
+export function getAlbums(userId: string): albumsResult {
     const options = {
         method: 'GET',
         uri: `${API_CORE}/albums/?userId=${userId}`,
@@ -30,7 +32,7 @@ export function getAlbums(userId: string) {
     }
 }
 
-export function getAlbum(albumId: string) {
+export function getAlbum(albumId: string): albumResult {
     const options = {
         method: 'GET',
         uri: `${API_CORE}/photos/?albumId=${albumId}`,

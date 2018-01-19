@@ -55,7 +55,7 @@ export default class UserPage extends React.Component {
                     <table className={styles.rightSideTable}>
                     {albums.map(el => {
                         return (
-                            <tr onClick={() => this._toAlbum(el.id)}>
+                            <tr key={el.id} onClick={() => this._toAlbum(el.id)}>
                                 <td><i className='material-icons'>photo_album</i><p>{el.title}</p><i className='material-icons'>play_arrow</i></td>
                             </tr>
                         )
